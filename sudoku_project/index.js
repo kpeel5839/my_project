@@ -1,4 +1,3 @@
-
 function btn_Click(){
     let input_List = new Array();
     input_List = document.getElementsByClassName("number");

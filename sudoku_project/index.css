@@ -17,7 +17,8 @@
     font-size : 70px;
     color : rgb(127,219,255);
     box-shadow : 5px 5px 5px rgba(127,219,255,0.7);
-    border-radius : 30%;
+    border-radius : 20%;
+    margin-bottom : 0;
 }
 .container_comment{
     font-size : 30px;
@@ -33,6 +34,8 @@ button{
     transition : all .5s;
     border-radius : 30%;
     border : 1px solid black;
+    box-shadow : 10px 10px 5px rgba(127,219,255,0.7); 
+    margin-bottom : 20px;
 }
 button:hover{
     transform : scale(1.1);
