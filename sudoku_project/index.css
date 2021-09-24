@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap');
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing : border-box;
+}
+.container{
+    width : 100vw;
+    height : 100vh;
+    display : flex;
+
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+}
+.container_title{
+    margin-top : 0;
+    font-size : 70px;
+    color : rgb(127,219,255);
+    box-shadow : 5px 5px 5px rgba(127,219,255,0.7);
+    border-radius : 30%;
+}
+.container_comment{
+    font-size : 30px;
+    text-align : center;
+}
+button{
+    margin-top : 30px;
+    font-size : 40px;
+    width : 200px;
+    height : 70px;
+    color : black;
+    background-color: rgb(127,219,255);
+    transition : all .5s;
+    border-radius : 30%;
+    border : 1px solid black;
+}
+button:hover{
+    transform : scale(1.1);
+}
+button:active{
+    transform : scale(0.9);
+    color : white;
+}
+strong { 
+    color : red;
+}
+table{
+    width : auto;
+    height : auto;
+    border-collapse : collapse;
+    margin-left : auto;
+    margin-right : auto;
+    box-shadow : 5px 5px 5px rgba(0,0,0,0.3);
+}
+td{
+    width : auto;
+    height : auto;
+    border : 1px solid grey;
+    text-align : center;
+    vertical-align: middle;
+    font-size : 30px;
+    font-weight: bold;
+    padding : 0;
+}
+input{
+    all : unset;
+    width : 120px;
+    height : 50px;
+}
+tr:nth-child(1) ,tr:nth-child(4),tr:nth-child(7){
+    border-top : 4px solid black;
+}
+td:nth-child(3) , td:nth-child(6) , td:nth-child(9){
+    border-right : 4px solid black;
+}
+td:nth-child(1){
+    border-left : 4px solid black;
+}
+tr:nth-child(9){
+    border-bottom : 4px solid black;
+}
