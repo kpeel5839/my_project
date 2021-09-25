@@ -7,10 +7,28 @@
     width : 100vw;
     height : 100vh;
     display : flex;
+    
+    flex-direction : row;
+    justify-content : center;
+    align-items : center;
+}
+.inner_container_1{
+    width : 70%;
+    height : 100%;
+    display : flex;
 
     flex-direction : column;
     justify-content : center;
     align-items : center;
+}
+.inner_container_2{
+    width : 30%;
+    height : 100%;
+    display : flex;
+    
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
 }
 .container_title{
     margin-top : 0;
@@ -24,7 +42,7 @@
     font-size : 30px;
     text-align : center;
 }
-button{
+.btn{
     margin-top : 30px;
     font-size : 40px;
     width : 200px;
@@ -37,10 +55,10 @@ button{
     box-shadow : 10px 10px 5px rgba(127,219,255,0.7); 
     margin-bottom : 20px;
 }
-button:hover{
+.btn:hover{
     transform : scale(1.1);
 }
-button:active{
+.btn:active{
     transform : scale(0.9);
     color : white;
 }
@@ -67,7 +85,7 @@ td{
 }
 input{
     all : unset;
-    width : 120px;
+    width : 100px;
     height : 50px;
 }
 tr:nth-child(1) ,tr:nth-child(4),tr:nth-child(7){

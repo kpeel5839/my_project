@@ -1,12 +1,12 @@
 function btn_Click(){
     let input_List = new Array();
     input_List = document.getElementsByClassName("number");
-
+    
     let sudoku_List = Array.from(Array(9) , () => new Array(9));
     //i have to make list of function
     //first : the index of the value i am trying to find
     //use fuction List = arr.splice , arr.push() ,in
-
+    let already_Exist_Value_List = new Array();
     //input_List change sudoku_List..
     let index = 0;
     let zeroRowList = new Array();
@@ -20,7 +20,39 @@ function btn_Click(){
                 continue;
             }
             sudoku_List[i][j] = parseInt(input_List[index].value);
+            already_Exist_Value_List.push(index);
             index += 1;
+        }
+    }
+    let sorted = false;
+    function dfs(dfs_Index){
+        if (sorted === true){
+            return;
+        }
+        if (dfs_Index == zeroRowList.length){
+            sorted = true;
+            let input_Index = 0;
+            let already_List_Index = 0;
+            for (let i = 0; i < 9; i++){
+                for (let j = 0; j < 9; j++){
+                    input_List[input_Index].value = sudoku_List[i][j];
+                    if (input_Index == already_Exist_Value_List[already_List_Index]){
+                        input_List[input_Index].style.color = "red";
+                        already_List_Index += 1;
+                    }
+                    input_Index += 1;
+                }
+            }
+        }
+        else{
+            let y = zeroRowList[dfs_Index];
+            let x = zeroColList[dfs_Index];
+            let promising = is_promising(y,x);
+            for (let i = 0; i < promising.length; i++){
+                sudoku_List[y][x] = promising[i];
+                dfs(dfs_Index + 1);
+                sudoku_List[y][x] = 0;
+            }
         }
     }
     function in_Array(value , arr){
@@ -74,31 +106,12 @@ function btn_Click(){
         }
         return promising;
     }
-    let sorted = false;
-    function dfs(dfs_Index){
-        if (sorted === true){
-            return;
-        }
-        if (dfs_Index == zeroRowList.length){
-            sorted = true;
-            let input_Index = 0;
-            for (let i = 0; i < 9; i++){
-                for (let j = 0; j < 9; j++){
-                    input_List[input_Index].value = sudoku_List[i][j];
-                    input_Index += 1;
-                }
-            }
-        }
-        else{
-            let y = zeroRowList[dfs_Index];
-            let x = zeroColList[dfs_Index];
-            let promising = is_promising(y,x);
-            for (let i = 0; i < promising.length; i++){
-                sudoku_List[y][x] = promising[i];
-                dfs(dfs_Index + 1);
-                sudoku_List[y][x] = 0;
-            }
-        }
-    }
     dfs(0);
+}
+function value_Clear(){ 
+    let input_List = document.getElementsByClassName("number");
+    for (let i = 0; i < input_List.length; i++){
+        input_List[i].value = "";
+        input_List[i].style.color = "black";
+    }   
 }
