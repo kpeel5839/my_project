@@ -66,7 +66,8 @@ function btn_Click(){
     function is_promising(row, col){
         let promising = [1,2,3,4,5,6,7,8,9]
         let value = 0;
-        let remainder = 0;
+        let startX =0;
+        let startY =0;
         for (let i = 0; i < 9; i++){
             value = sudoku_List[i][col];
             if (i == row){
@@ -85,16 +86,12 @@ function btn_Click(){
                 promising.splice(promising.indexOf(sudoku_List[row][i]), 1);
             }
         }
-        remainder = row % 3;
-        row = row - remainder;
-        remainder = col % 3;
-        col = col - remainder;
-        row = row / 3;
-        col = col / 3;
-        row *= 3;
-        col *= 3;
-        for (let i = row; i < row + 3; i++){
-            for (let j = col; j < col + 3; j++){
+        startX = Math.floor(row / 3);
+        startY = Math.floor(col / 3);
+        startX *= 3;
+        startY *= 3;
+        for (let i = startX; i < startX + 3; i++){
+            for (let j = startY; j < startY + 3; j++){
                 if (i == row && j == col){
                     continue;
                 }
