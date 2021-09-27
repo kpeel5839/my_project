@@ -152,7 +152,6 @@ function timeLimitNone(){
 }
 function value_Clear() {
   game_process = false;
-  getResult = true;
   let input_List = document.getElementsByClassName("number");
   for (let i = 0; i < input_List.length; i++) {
     input_List[i].value = "";
