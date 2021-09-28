@@ -228,6 +228,7 @@ function check_Value(object) {
       input_List[input_Index].style.color = "red";
       let lifeCount = document.getElementsByClassName("lifeCount");
       lifeCount[0].innerHTML = parseInt(lifeCount[0].innerHTML) - 1;
+      setTimeout(() => {
       if (parseInt(lifeCount[0].innerHTML) == 0){
         result = window.confirm("다시 하시겠습니까?");
         if (result == true){
@@ -246,6 +247,7 @@ function check_Value(object) {
           lifeCount[0].innerHTML = 3;
         }
       }
+    },300);
       setTimeout(() => input_List[input_Index].style.color = "black", 500);
     }
   }
