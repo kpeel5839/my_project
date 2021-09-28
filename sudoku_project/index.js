@@ -256,6 +256,9 @@ function check_Value(object) {
     },300);
       setTimeout(() => input_List[input_Index].style.color = "black", 500);
     }
+    else{
+      input_List[input_Index].readOnly = true;
+    }
   }
 }
 function btn_Complete(){ //reaization complete
