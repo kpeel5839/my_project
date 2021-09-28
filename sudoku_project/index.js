@@ -151,11 +151,14 @@ function timeLimitNone(){
   timeLimit = 0;
 }
 function value_Clear() {
+  let life = document.getElementsByClassName("lifeCount");
+  life[0].innerHTML = 3;
   game_process = false;
   let input_List = document.getElementsByClassName("number");
   for (let i = 0; i < input_List.length; i++) {
     input_List[i].value = "";
     input_List[i].style.color = "black";
+    input_List[i].readOnly = false;
   }
 }
 function change_Color(object) { //index find success
@@ -226,6 +229,8 @@ function check_Value(object) {
     let col = input_Index % 9;
     if (resultSudokuList[row][col] != input_List[input_Index].value){
       input_List[input_Index].style.color = "red";
+      input_List[input_Index].value = resultSudokuList[row][col];
+      input_List[input_Index].readOnly = true;
       let lifeCount = document.getElementsByClassName("lifeCount");
       lifeCount[0].innerHTML = parseInt(lifeCount[0].innerHTML) - 1;
       setTimeout(() => {
@@ -238,6 +243,7 @@ function check_Value(object) {
               alreadyExistIndex += 1;
               continue;
             }
+            input_List[i].readOnly = false;
             input_List[i].value = "";
           }
           lifeCount[0].innerHTML = 3;
@@ -253,6 +259,8 @@ function check_Value(object) {
   }
 }
 function btn_Complete(){ //reaization complete
+  let life = document.getElementsByClassName("lifeCount");
+  life[0].innerHTML = 3;
   game_process = true;
   getResult = true;
   btn_Result_Click();
@@ -261,6 +269,10 @@ function btn_Complete(){ //reaization complete
   for (let i = 0; i < 81; i++){
     if (input_List[i].value != ""){
       alreadyExistValueList.push(i);
+      input_List[i].readOnly = true;
+    }
+    else{
+      input_List[i].readOnly = false;
     }
   }
 }
@@ -274,6 +286,8 @@ function advance(){
   level = 3;
 }
 function problemPosing(){
+  let life = document.getElementsByClassName("lifeCount");
+  life[0].innerHTML = 3;
   game_process = true;
   for (let i = 0; i < 81; i++){
     input_List[i].value = "";
@@ -328,6 +342,10 @@ function problemPosing(){
   for (let i = 0; i < 81; i++){
     if(input_List[i].value != ""){
       alreadyExistValueList.push(i);
+      input_List[i].readOnly = true;
+    }
+    else{
+      input_List[i].readOnly = false;
     }
   }
 }
